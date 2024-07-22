@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Ejemplos</title>
+</head>
+<body>
+    <h1>Lista de Ejemplos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ejemplo in ejemplos %}
+            <tr>
+                <td>{{ ejemplo.nombre }}</td>
+                <td>{{ ejemplo.descripcion }}</td>
+                <td>
+                    <a href="{% url 'editar_ejemplo' ejemplo.id %}">Editar</a>
+                    <a href="{% url 'eliminar_ejemplo' ejemplo.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'crear_ejemplo' %}">Crear Nuevo Ejemplo</a>
+</body>
+</html>
